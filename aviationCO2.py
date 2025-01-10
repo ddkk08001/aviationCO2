@@ -19,7 +19,7 @@ while True:
     except ValueError:
         os.system('clear')
         print_red_background("Error: Flying time must be valid number. Please enter a positive integer (WITHOUT UNITS).")
-
+ 
 def calculateB738Fuel(timeFlying):
     return (13.75 * timeFlying)
 
