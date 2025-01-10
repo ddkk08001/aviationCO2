@@ -1,5 +1,6 @@
 import os
 import sys
+import matplotlib.pyplot as plt
 
 os.system('clear')
 
@@ -57,3 +58,7 @@ print("-" * 70)
 for row in data:
     print("{: >15} {: >2} {: >20} {: >2} {: >20}".format(*row))
     print("-" * 70)
+
+aircraft = [row[0] for row in data[1:]]
+fuel = [row[2] for row in data[1:]]
+co2 = [row[4] for row in data[1:]]
