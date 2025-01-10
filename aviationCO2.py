@@ -33,7 +33,7 @@ def calculateB77WFuel(timeFlying):
     return (20.38 * timeFlying)
 
 def calculateB738CO2(timeFlying):
-    return (3.16 * calculateA320Fuel(timeFlying))
+    return (3.16 * calculateB738Fuel(timeFlying))
 
 def calculateA320CO2(timeFlying):
     return (3.16 * calculateA320Fuel(timeFlying))
@@ -42,12 +42,23 @@ def calculateB789CO2(timeFlying):
     return (3.16 * calculateB789Fuel(timeFlying))
 
 def calculateB77WCO2(timeFlying):
-    return (3.16 * calculateB789Fuel(timeFlying))
+    return (3.16 * calculateB77WFuel(timeFlying))
 
 print (timeFlying)
 
-print(calculateB789Fuel(timeFlying), "kg/passenger")
-print(calculateB789CO2(timeFlying), "kg/passenger")
+print(round(calculateB789Fuel(timeFlying), 1), "kg/passenger")
+print(round(calculateB789CO2(timeFlying), 1), "kg/passenger")
 
+data = [
+    ["Aircraft", "|", "Fuel (kg/passenger)", "|", "CO2 (kg/passenger)"],
+    ["B737-800", "|", round(calculateB738Fuel(timeFlying), 1), "|", round(calculateB738CO2(timeFlying), 1)],
+    ["A320-200", "|", round(calculateA320Fuel(timeFlying), 1), "|", round(calculateA320CO2(timeFlying), 1)],
+    ["B787-9", "|", round(calculateB789Fuel(timeFlying), 1), "|", round(calculateB789CO2(timeFlying), 1)],
+    ["B777-300ER", "|", round(calculateB77WFuel(timeFlying), 1), "|", round(calculateB77WCO2(timeFlying), 1)]
+]
 
-#1
+print("Table: Fuel Burned and CO2 Emissions per Passenger for Different Aircrafts")
+print("-" * 70)
+for row in data:
+    print("{: >15} {: >2} {: >20} {: >2} {: >20}".format(*row))
+    print("-" * 70)
