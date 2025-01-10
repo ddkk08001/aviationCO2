@@ -18,6 +18,25 @@ The `aviationCO2` project calculates the fuel consumption and CO2 emissions per 
     cd aviationCO2
     ```
 
+2. 가상 환경 생성 | Create a virtual environment:
+    ```sh
+    python3 -m venv venv
+    ```
+
+3. 가상 환경 활성화 | Activate the virtual environment:
+    - macOS 및 Linux:
+        ```sh
+        source venv/bin/activate
+        ```
+    - Windows:
+        ```sh
+        .\venv\Scripts\activate
+        ```
+
+4. 종속성 설치 | Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+
 ## 사용 방법 | Usage
 1. 스크립트 실행 | Run the script:
     ```sh
