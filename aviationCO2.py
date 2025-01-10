@@ -62,3 +62,23 @@ for row in data:
 aircraft = [row[0] for row in data[1:]]
 fuel = [row[2] for row in data[1:]]
 co2 = [row[4] for row in data[1:]]
+
+fig1, ax1 = plt.subplots()  
+
+color = 'tab:red'
+ax1.set_xlabel('Aircraft')
+ax1.set_ylabel('Fuel (kg/passenger)', color=color)
+ax1.bar(aircraft, fuel, color=color)
+ax1.tick_params(axis='y', labelcolor=color)
+ax1.set_title('Fuel Burned and CO2 Emissions per Passenger for Different Aircrafts')
+
+fig2, ax2 = plt.subplots()
+color = 'tab:blue'
+ax2.set_ylabel('CO2 (kg/passenger)', color=color)
+ax2.bar(aircraft, co2, color=color)
+ax2.tick_params(axis='y', labelcolor=color)
+ax2.set_title('Fuel Burned and CO2 Emissions per Passenger for Different Aircrafts')
+
+fig1.tight_layout()
+fig2.tight_layout()
+plt.show()
