@@ -8,7 +8,8 @@ This is a  project that was created as part of the `IB MYP Personal Project`.
 The `aviationCO2` project calculates the fuel consumption and CO2 emissions per passenger for different aircraft types based on the flying time. This tool helps to understand the environmental impact of air travel.
 
 ## 요구사항 | Requirements
-- 파이썬 버전 3.8 또는 그 이상 | Python 3.8 or higher
+- Python 3.8 or higher
+- Matplotlib 3.10.0
 
 ## 설치 방법 | Installation
 1. 리포지토리 복제 | Clone the repository:
