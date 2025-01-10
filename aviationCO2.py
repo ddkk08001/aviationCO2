@@ -44,11 +44,6 @@ def calculateB789CO2(timeFlying):
 def calculateB77WCO2(timeFlying):
     return (3.16 * calculateB77WFuel(timeFlying))
 
-print (timeFlying)
-
-print(round(calculateB789Fuel(timeFlying), 1), "kg/passenger")
-print(round(calculateB789CO2(timeFlying), 1), "kg/passenger")
-
 data = [
     ["Aircraft", "|", "Fuel (kg/passenger)", "|", "CO2 (kg/passenger)"],
     ["B737-800", "|", round(calculateB738Fuel(timeFlying), 1), "|", round(calculateB738CO2(timeFlying), 1)],

@@ -1,5 +1,8 @@
 # Flying CO2 Emittion Calculator
 
+본 프로젝트는 `IB MYP Personal Project` 의 일환으로 시작한 간단한 프로젝트입니다.
+This is a  project that was created as part of the `IB MYP Personal Project`.
+
 `aviationCO2` 프로젝트는 비행 시간을 기준으로 다양한 항공기 유형에 대한 승객 1인당 연료 소비량과 CO2 배출량을 계산합니다. 이 도구는 항공 여행의 환경적 영향을 이해하는 데 도움이 됩니다.
 
 The `aviationCO2` project calculates the fuel consumption and CO2 emissions per passenger for different aircraft types based on the flying time. This tool helps to understand the environmental impact of air travel.
