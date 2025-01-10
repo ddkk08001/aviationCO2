@@ -59,6 +59,16 @@ for row in data:
     print("{: >15} {: >2} {: >20} {: >2} {: >20}".format(*row))
     print("-" * 70)
 
+least_value = min([row[4] for row in data[1:]])
+if least_value == round(calculateB738CO2(timeFlying), 1):
+    print("The B737-800 has the least CO2 emissions per passenger.")
+elif least_value == round(calculateA320CO2(timeFlying), 1):
+    print("The A320-200 has the least CO2 emissions per passenger.")
+elif least_value == round(calculateB789CO2(timeFlying), 1):
+    print("The B787-9 has the least CO2 emissions per passenger.")
+else:
+    print("The B777-300ER has the least CO2 emissions per passenger.")
+
 aircraft = [row[0] for row in data[1:]]
 fuel = [row[2] for row in data[1:]]
 co2 = [row[4] for row in data[1:]]
