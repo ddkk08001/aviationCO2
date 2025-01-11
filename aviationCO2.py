@@ -4,9 +4,11 @@ import matplotlib.pyplot as plt
 
 os.system('clear')
 
+# Error Code Background Definition
 def print_red_background(text):
     sys.stdout.write("\033[41m{}\033[0m\n".format(text))
 
+# Number Input
 while True:
     timeFlying = input("Enter the time flying in hours: ")
 
@@ -21,6 +23,7 @@ while True:
         os.system('clear')
         print_red_background("Error: Flying time must be valid number. Please enter a positive integer (WITHOUT UNITS).")
  
+# Fuel Used Calculation
 def calculateB738Fuel(timeFlying):
     return (13.75 * timeFlying)
 
@@ -33,6 +36,8 @@ def calculateB789Fuel(timeFlying):
 def calculateB77WFuel(timeFlying):
     return (20.38 * timeFlying)
 
+
+# CO2 Emissions Calculation
 def calculateB738CO2(timeFlying):
     return (3.16 * calculateB738Fuel(timeFlying))
 
@@ -45,6 +50,7 @@ def calculateB789CO2(timeFlying):
 def calculateB77WCO2(timeFlying):
     return (3.16 * calculateB77WFuel(timeFlying))
 
+# Table Output
 data = [
     ["Aircraft", "|", "Fuel (kg/passenger)", "|", "CO2 (kg/passenger)"],
     ["B737-800", "|", round(calculateB738Fuel(timeFlying), 1), "|", round(calculateB738CO2(timeFlying), 1)],
@@ -59,6 +65,7 @@ for row in data:
     print("{: >15} {: >2} {: >20} {: >2} {: >20}".format(*row))
     print("-" * 70)
 
+# Least CO2 Emissions
 least_value = min([row[4] for row in data[1:]])
 if least_value == round(calculateB738CO2(timeFlying), 1):
     print("The B737-800 has the least CO2 emissions per passenger.")
@@ -69,6 +76,7 @@ elif least_value == round(calculateB789CO2(timeFlying), 1):
 else:
     print("The B777-300ER has the least CO2 emissions per passenger.")
 
+# Graph Output
 aircraft = [row[0] for row in data[1:]]
 fuel = [row[2] for row in data[1:]]
 co2 = [row[4] for row in data[1:]]
