@@ -78,16 +78,37 @@ for row in data:
     print("{: >15} {: >2} {: >20} {: >2} {: >20}".format(*row))
     print("-" * 70)
 
-# Least CO2 Emissions
-least_value = min([row[4] for row in data[1:]])
-if least_value == round(calculateB738CO2(timeFlying), 1):
-    print("The B737-800 has the least CO2 emissions per passenger.")
-elif least_value == round(calculateA320CO2(timeFlying), 1):
-    print("The A320-200 has the least CO2 emissions per passenger.")
-elif least_value == round(calculateB789CO2(timeFlying), 1):
-    print("The B787-9 has the least CO2 emissions per passenger.")
+# Explianation of 0s in Data
+if (calculateB738Fuel(timeFlying) == 0 or calculateA320Fuel(timeFlying) == 0 or calculateB789Fuel(timeFlying) == 0 or calculateB77WFuel(timeFlying) == 0):
+    print_red_background("Note: A 0 in the Fuel column indicates that the aircraft is not capable for flying for given hours.")
+    if (calculateB738Fuel(timeFlying) == 0 and calculateA320Fuel(timeFlying) == 0 and calculateB789Fuel(timeFlying) == 0 and calculateB77WFuel(timeFlying) == 0):
+        print_red_background("Note: No aircraft is capable for flying for given hours.")
+    else:
+        # Least CO2 Emissions
+        calc_co2_values = [row[4] for row in data[1:] if row[4] != 0]
+        least_value = min(calc_co2_values)  
+        if least_value == round(calculateB738CO2(timeFlying), 1):
+            print("The B737-800 has the least CO2 emissions per passenger.")
+        elif least_value == round(calculateA320CO2(timeFlying), 1):
+            print("The A320-200 has the least CO2 emissions per passenger.")
+        elif least_value == round(calculateB789CO2(timeFlying), 1):
+            print("The B787-9 has the least CO2 emissions per passenger.")
+        else:
+            print("The B777-300ER has the least CO2 emissions per passenger.")
 else:
-    print("The B777-300ER has the least CO2 emissions per passenger.")
+    # Least CO2 Emissions
+    calc_co2_values = [row[4] for row in data[1:] if row[4] != 0]
+    least_value = min(calc_co2_values)  
+    if least_value == round(calculateB738CO2(timeFlying), 1):
+        print("The B737-800 has the least CO2 emissions per passenger.")
+    elif least_value == round(calculateA320CO2(timeFlying), 1):
+        print("The A320-200 has the least CO2 emissions per passenger.")
+    elif least_value == round(calculateB789CO2(timeFlying), 1):
+        print("The B787-9 has the least CO2 emissions per passenger.")
+    else:
+        print("The B777-300ER has the least CO2 emissions per passenger.")
+
+
 
 # Graph Output
 aircraft = [row[0] for row in data[1:]]
