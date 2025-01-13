@@ -107,8 +107,7 @@ else:
         print("The B787-9 has the least CO2 emissions per passenger.")
     else:
         print("The B777-300ER has the least CO2 emissions per passenger.")
-
-
+        
 
 # Graph Output
 aircraft = [row[0] for row in data[1:]]
