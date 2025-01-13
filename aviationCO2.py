@@ -25,16 +25,29 @@ while True:
  
 # Fuel Used Calculation
 def calculateB738Fuel(timeFlying):
-    return (13.75 * timeFlying)
+    if timeFlying >= 7:
+        return 0
+    else:
+        return (13.75 * timeFlying)
 
 def calculateA320Fuel(timeFlying):
-    return (13.5 * timeFlying)
+    if timeFlying >= 8:
+        return 0
+    else:
+        return (13.5 * timeFlying)
 
 def calculateB789Fuel(timeFlying):
-    return (18.92 * timeFlying)
+    if timeFlying >= 17:
+        return 0
+    else:
+        return (18.92 * timeFlying)
 
 def calculateB77WFuel(timeFlying):
-    return (20.38 * timeFlying)
+
+    if timeFlying >= 14:
+        return 0
+    else:
+        return (20.38 * timeFlying)
 
 
 # CO2 Emissions Calculation
